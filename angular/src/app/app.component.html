@@ -8,14 +8,17 @@
     <calcite-icon icon="banana"></calcite-icon>
   </h1>
 
-  <calcite-slider
-    min="1"
-    max="100"
-    [value]="sliderValue"
-    (calciteSliderInput)="onSliderInput($event)"
-  ></calcite-slider>
-
-  <p>The slider currently has a value of {{ sliderValue }}.</p>
-
-  <calcite-button (click)="clearSliderValue()">Clear</calcite-button>
+  <calcite-modal style="height: 250px; width: 250px;" open="isDialogOpen" id="example-dialog">
+    <div slot="header">Test Modal</div>
+    <div slot="content">
+      <p-dropdown 
+          ngDefaultControl
+          appendTo="body"
+          [options]="cities" 
+          [(ngModel)]="selectedCity" 
+          optionLabel="name"
+          placeholder="Select a City" />
+    </div>
+</calcite-modal>
+  <calcite-button id="example-button" (click)="open()">Open dialog</calcite-button>
 </ng-template>
